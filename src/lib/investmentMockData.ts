@@ -1,4 +1,5 @@
-import { DailyRecord, InvestmentPlan, MarketEvent, RiskReminder } from '@/types/investment';
+import { DailyRecord, InvestmentPlan, MarketEvent, RiskReminder, WeeklyReview } from '@/types/investment';
+import { RealizedPnlRecord } from '@/types/realizedPnl';
 
 // 模擬今日日期
 const today = new Date('2026-01-27');
@@ -222,3 +223,132 @@ export const mockRiskReminders: RiskReminder[] = [
     action: '暫停加碼，觀望為主',
   },
 ];
+
+// 已實現損益（模擬資料）
+export const mockRealizedPnls: RealizedPnlRecord[] = [
+  {
+    id: 'pnl-1',
+    date: new Date('2026-01-20'),
+    symbol: '2330',
+    name: '台積電',
+    buyPrice: 618,
+    buyQty: 20,
+    sellPrice: 663,
+    sellQty: 20,
+    profit: 8500,
+    profitPercent: 12.3,
+    holdingDays: 45,
+  },
+  {
+    id: 'pnl-2',
+    date: new Date('2026-01-18'),
+    symbol: '2454',
+    name: '聯發科',
+    buyPrice: 950,
+    buyQty: 10,
+    sellPrice: 1028,
+    sellQty: 10,
+    profit: 3200,
+    profitPercent: 8.5,
+    holdingDays: 22,
+  },
+  {
+    id: 'pnl-3',
+    date: new Date('2026-01-15'),
+    symbol: '2317',
+    name: '鴻海',
+    buyPrice: 115,
+    buyQty: 50,
+    sellPrice: 109,
+    sellQty: 50,
+    profit: -1250,
+    profitPercent: -3.2,
+    holdingDays: 8,
+    note: '停損出場',
+  },
+  // 可再新增更多資料
+];
+
+// 每週回顧 mock 資料
+export const mockWeeklyReviews: WeeklyReview[] = [
+  {
+    id: 'week-2026-01-21',
+    weekStart: new Date('2026-01-21'),
+    weekEnd: new Date('2026-01-27'),
+    goodDecisions: [
+      '嚴格執行停損，及時出場鴻海',
+      '沒有追高台積電，等待回檔',
+      '分批加碼 ETF，分散風險',
+    ],
+    mistakes: [
+      '對聯發科財報預期過於樂觀，未設停利',
+      '週三情緒受市場影響，差點追高',
+    ],
+    lessonsLearned: [
+      '市場波動大時更要紀律操作',
+      '不要預設立場，尊重市場訊號',
+    ],
+    nextWeekFocus: [
+      '觀察 Fed 決議後市場反應',
+      '嚴控部位，不輕易加碼',
+    ],
+  },
+];
+
+// 首頁資訊區塊 mock 資料
+export const mockInfoSummary = [
+  {
+    id: 'tw-weighted',
+    label: '台股加權指數',
+    value: 23580,
+    change: 150,
+    changePercent: 0.64,
+    unit: '',
+  },
+  {
+    id: 'tw-otc',
+    label: '台股櫃買指數',
+    value: 210.5,
+    change: -0.8,
+    changePercent: -0.38,
+    unit: '',
+  },
+  {
+    id: 'usd-index',
+    label: '美元指數',
+    value: 103.2,
+    change: 0.2,
+    changePercent: 0.19,
+    unit: '',
+  },
+  {
+    id: 'margin',
+    label: '融資餘額 (億元)',
+    value: 1850,
+    change: -10,
+    changePercent: -0.54,
+    unit: '',
+  },
+  {
+    id: 'vix',
+    label: 'VIX 指數',
+    value: 13.5,
+    change: 0.3,
+    changePercent: 2.27,
+    unit: '',
+  },
+  {
+    id: 'gold',
+    label: '金價 (美元/盎司)',
+    value: 2025,
+    change: 5,
+    changePercent: 0.25,
+    unit: '',
+  },
+];
+
+export const mockInstitutional = {
+  foreign: 85,
+  investment: -12,
+  dealer: 47,
+};
