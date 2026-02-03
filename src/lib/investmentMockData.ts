@@ -1,5 +1,6 @@
 import { DailyRecord, InvestmentPlan, MarketEvent, RiskReminder, WeeklyReview } from '@/types/investment';
 import { RealizedPnlRecord } from '@/types/realizedPnl';
+import type { StockPosition } from '@/components/StockTable';
 
 // 模擬今日日期
 const today = new Date('2026-01-27');
@@ -352,3 +353,10 @@ export const mockInstitutional = {
   investment: -12,
   dealer: 47,
 };
+
+// 自選股模擬資料
+export const mockStockPositions: StockPosition[] = [
+  { symbol: '2330', name: '台積電', shares: 5, profit: 12000, action: '持有' },
+  { symbol: '2454', name: '聯發科', shares: 2, profit: -3000, action: '長高賣出' },
+  { symbol: '0050', name: '台灣50', shares: 10, profit: 8000, action: '建立部位' },
+];
